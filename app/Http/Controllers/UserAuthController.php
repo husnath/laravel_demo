@@ -63,9 +63,9 @@ class UserAuthController extends Controller
         $adminemployee = Adminemployee::where('userName','=',$request->userName)->first(); 
         if($adminemployee){
             // password check..........................
-            // if(Hash::check($request->password,$adminemployee->password)){
+            if(Hash::check($request->password,$adminemployee->password)){
             
-            if(1){
+            // if(1){
                 $request->session()->put('LoggedUser',$adminemployee->adminEmployeeId);
                 return redirect('profile');
                
